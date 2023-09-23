@@ -58,6 +58,23 @@ const RegisterModal = () => {
         errors={errors}
         required
       />
+      <Input
+        register={register}
+        id="name"
+        label="Name"
+        disabled={isLoading}
+        errors={errors}
+        required
+      />
+      <Input
+        register={register}
+        id="password"
+        type={"password"}
+        label="Password"
+        disabled={isLoading}
+        errors={errors}
+        required
+      />
     </div>
   );
 
