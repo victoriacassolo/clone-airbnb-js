@@ -47,11 +47,7 @@ const RegisterModal = () => {
 
   const bodyContent = (
     <div className="flex flex-col gap-4">
-      <Heading
-        title={"Hello Modal Body!"}
-        subtitle={"Create an account!"}
-        center
-      />
+      <Heading title={"Welcome to Airbnb"} subtitle={"Create an account!"} />
       <Input
         register={register}
         id="email"
