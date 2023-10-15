@@ -4,14 +4,14 @@ import GithubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import CredentialsProvider from "next-auth/providers/credentials";
-import bcrypt from bcrypt;
+import bcrypt from "bcrypt";
 
 export const authOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE__CLIENT_SECRET,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       // authorization: {
       //   params: {
       //     prompt: "consent",
@@ -63,8 +63,8 @@ export const authOptions = {
           user.hashedPassword
         );
 
-        if(!isCorrectPassword) {
-          throw new Error('Invalid credentials')
+        if (!isCorrectPassword) {
+          throw new Error("Invalid credentials");
         }
 
         return user;
@@ -72,14 +72,13 @@ export const authOptions = {
     }),
   ],
   pages: {
-    signIn: '/',
+    signIn: "/",
   },
-  debug: process.env.NODE_ENV === 'development',
+  debug: process.env.NODE_ENV === "development",
   session: {
-    strategy: 'jwt'
+    strategy: "jwt",
   },
-  secret: process.env.NEXTAUTH_SECRET
-
+  secret: process.env.NEXTAUTH_SECRET,
 };
 
-export default NextAuth(authOptions)
+export default NextAuth(authOptions);
