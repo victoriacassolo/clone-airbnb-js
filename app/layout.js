@@ -34,4 +34,4 @@ export default async function RootLayout({ children }) {
   );
 }
 
-// 3:24:45 video time
+// 3:47:16 video time
