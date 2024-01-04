@@ -9,7 +9,7 @@ const CountrySelect = ({
   latlng,
   region,
   value,
-  onChange = (flag, label, latlng, region, value) => {},
+  onChange = () => {},
 }) => {
   const { getAll } = useCountries();
 
@@ -20,7 +20,7 @@ const CountrySelect = ({
         isClearable
         options={getAll()}
         value={value}
-        onChange={(value) => onChange(flag, label, latlng, region, value)}
+        onChange={(value) => onChange(value)}
         formatOptionLabel={(option) => (
           <div className="flex flex-row items-center gap-3">
             <div>{option.flag}</div>
