@@ -23,8 +23,8 @@ export default async function RootLayout({ children }) {
       <body className={font.className}>
         <ClientOnly>
           <ToasterProvider />
-          <LoginModal />
           <RentModal />
+          <LoginModal />
           <RegisterModal />
           <Navbar currentUser={currentUser} />
         </ClientOnly>
@@ -33,3 +33,6 @@ export default async function RootLayout({ children }) {
     </html>
   );
 }
+
+// 3:57:16 video time
+// https://www.youtube.com/watch?v=c_-b_isI4vg&t=3844s
