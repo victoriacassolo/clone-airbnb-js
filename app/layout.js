@@ -34,5 +34,5 @@ export default async function RootLayout({ children }) {
   );
 }
 
-// 3:57:16 video time
+// 4:17:16 video time
 // https://www.youtube.com/watch?v=c_-b_isI4vg&t=3844s
