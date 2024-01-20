@@ -28,11 +28,11 @@ export default async function RootLayout({ children }) {
           <RegisterModal />
           <Navbar currentUser={currentUser} />
         </ClientOnly>
-        {children}
+        <div className="pb-20 pt-28">{children}</div>
       </body>
     </html>
   );
 }
 
-// 4:49:16 video time
+// 4:57:16 video time
 // https://www.youtube.com/watch?v=c_-b_isI4vg&t=3844s
