@@ -15,7 +15,7 @@ const useFavorite = ({ listingId, currentUser }) => {
   }, [currentUser, listingId]);
 
   const toggleFavorite = useCallback(
-    async (e) => {
+    (e) => {
       e.stopPropagation();
 
       if (!currentUser) {
@@ -23,20 +23,22 @@ const useFavorite = ({ listingId, currentUser }) => {
       }
 
       try {
-        let request;
-
-        if (hasFavorited) {
-          request = async () => axios.delete(`/api/favorites/${listingId}`);
-        } else {
-          request = async () => {
-            axios.post(`/api/favorites/${listingId}`);
+        if (!hasFavorited) {
+          let response = async () => {
+            await axios.post(`/api/favorites/${listingId}`).then(() => {
+              router.refresh();
+              toast.success("Success");
+            });
           };
+          response();
+        } else {
+          let response = async () =>
+            await axios.delete(`/api/favorites/${listingId}`).then(() => {
+              router.refresh();
+              toast.success("Success");
+            });
+          response();
         }
-
-        await request();
-        router.refresh();
-
-        toast.success("Success");
       } catch (error) {
         toast.error("Something went wrong");
       }
